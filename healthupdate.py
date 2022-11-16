@@ -4,7 +4,6 @@ import smtplib,ssl
 def sendMAIL(re):
     s = smtplib.SMTP('smtp.gmail.com', 587)
 
-    # start TLS for security
     s.starttls()
     sender_email = "tejaschigateri15@gmail.com"
     password = "ykbrjkgbdamyxult"
@@ -23,9 +22,9 @@ def sendMAIL(re):
 
     context = ssl.create_default_context()
     with smtplib.SMTP(smtp_server, port) as server:
-        server.ehlo()  # Can be omitted
+        server.ehlo()  
         server.starttls(context=context)
-        server.ehlo()  # Can be omitted
+        server.ehlo()  
         server.login(sender_email, password)
         server.sendmail(sender_email, re, message)
 
